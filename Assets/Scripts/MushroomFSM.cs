@@ -157,7 +157,7 @@ public class MushroomFSM : MonoBehaviour
 
             if(currentTime>attackDelay)
             {
-                player.GetComponent<PlayerMove>().DamageAction(attackPower);
+                GameObject.Find("GameManager").SendMessage("LoseHP");
                 print("АјАн");
                 currentTime = 0;
             }
