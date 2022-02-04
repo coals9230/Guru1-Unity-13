@@ -143,6 +143,7 @@ public class MushroomFSM : MonoBehaviour
 
             // 누적 시간을 공격 딜레이 시간만큼 미리 진행시킴 (공격 상태로 전환될 때 바로 공격)
             currentTime = attackDelay;
+
         }
 
     }
@@ -160,6 +161,9 @@ public class MushroomFSM : MonoBehaviour
                 GameObject.Find("GameManager").SendMessage("LoseHP");
                 print("공격");
                 currentTime = 0;
+
+                // 공격 애니메이션
+                anim.SetTrigger("Attack");
             }
         }
 
@@ -203,6 +207,9 @@ public class MushroomFSM : MonoBehaviour
         {
             m_State = MonsterState.Damaged;
             print("상태 전환 : AnyState -> Damaged");
+
+            // 피격 애니메이션
+            anim.SetTrigger("Damaged");
             Damaged();
         }
         // 체력이 0 이하면 죽음 상태로 전환
@@ -223,9 +230,10 @@ public class MushroomFSM : MonoBehaviour
         StartCoroutine(DieProcess());
 
         // 죽음 애니메이션 실행
+        anim.SetTrigger("Die");
 
-        // 플레이어 경험치 올리기
-        //player.GetComponent<PlayerMove>().getExp(exp);
+        // 경험치 증가
+        GameObject.Find("GameManager").SendMessage("GainEXP");
     }
 
     IEnumerator DieProcess()
