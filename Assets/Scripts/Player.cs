@@ -1,37 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float MovementSpeed = 1;
-    public float JumpForce = 1;
+    public float MovementSpeed = 8;
+    public float JumpForce = 15;
 
-    public Rigidbody2D _rigidbody;
+    Rigidbody2D _rigidbody;
+    Animator anim;
+    SpriteRenderer sprite;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // 이동
+        var movement = Input.GetAxisRaw("Horizontal");
+        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+
+        // [X]키 공격 
         if (Input.GetKeyDown(KeyCode.X))
         {
             float distance = Vector2.Distance(GameObject.Find("Monster").transform.position,
                 transform.position);
 
-            if (distance <= 0.5f)
+            if (distance <= 2f)
             {
-                GameObject.Find("Monster").SendMessage("Attacked");
+                GameObject.Find("Monster").SendMessage("Damaged");
+                anim.SetTrigger("attack");
+                anim.SetBool("isWalking", false);
             }
         }
-        var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
+        // 캐릭터 방향 설정
+        if (Input.GetButton("Horizontal"))
+        {
+            sprite.flipX = Input.GetAxisRaw("Horizontal") == 1;
+        }
+
+        // 애니메이션 설정
+        if (Input.GetButtonUp("Horizontal"))
+            anim.SetBool("isWalking", false);
+        else if (Input.GetButtonDown("Horizontal"))
+            anim.SetBool("isWalking", true);
+        
+        // 점프
         if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
         {
             _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            anim.SetBool("isWalking",false);
         }
+
     }
 }
