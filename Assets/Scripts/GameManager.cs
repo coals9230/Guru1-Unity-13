@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
 
         if (HP <= 0)
         {
-            RestartGame();
+            SceneManager.LoadScene("GameOver");
+            //RestartGame();
+
         }
     }
 
@@ -56,18 +58,19 @@ public class GameManager : MonoBehaviour
         Potion++;
     }
 
-    public void RestartGame()
+    /*public void RestartGame()
     {
         SceneManager.LoadScene("Stage1");
-    }
-
+    }*/
+    
     public Text PotionText;
     void Start()
     {
         HP = 200;
         Potion = 0;
+        
     }
-
+   
     // Update is called once per frame
     void Update()
     {
@@ -84,5 +87,53 @@ public class GameManager : MonoBehaviour
                 Debug.Log("HP:" + HP);
             }
         }
+        //if(player)
+    }
+    
+    public static GameManager gm;
+    //public GameObject gameLabel;
+    //Image gameImage;
+
+    public void Awake()
+    {
+        if(gm == null)
+        {
+            gm = this;
+        }
+    }
+    public enum GameState
+    {
+        Ready,
+        Run,
+        Pause,
+        GameOver,
+    }
+    public GameState gState;
+
+    public GameObject gameOption;
+
+    public void OpenOptionWindow()
+    {
+        gameOption.SetActive(true);
+        Time.timeScale = 0f;
+        gState = GameState.Pause;
+    }
+
+    public void CloseOptionWindow()
+    {
+        gameOption.SetActive(false);
+        Time.timeScale = 1f;
+        gState = GameState.Run;
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
