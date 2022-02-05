@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
             Level++;
             SceneManager.LoadScene("Stage3");
         }
-
+        if (EXP >= 600)
+            SceneManager.LoadScene("GameOver");
     }
     public void GotPotion()
     {
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
         //if(player)
     }
     
-    public static GameManager gm;
+    /*public static GameManager gm;
     //public GameObject gameLabel;
     //Image gameImage;
 
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviour
         {
             gm = this;
         }
-    }
+    }*/
     public enum GameState
     {
         Ready,
