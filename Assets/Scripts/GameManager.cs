@@ -59,10 +59,6 @@ public class GameManager : MonoBehaviour
         Potion++;
     }
 
-    /*public void RestartGame()
-    {
-        SceneManager.LoadScene("Stage1");
-    }*/
     
     public Text PotionText;
     void Start()
@@ -89,52 +85,5 @@ public class GameManager : MonoBehaviour
             }
         }
         //if(player)
-    }
-    
-    /*public static GameManager gm;
-    //public GameObject gameLabel;
-    //Image gameImage;
-
-    public void Awake()
-    {
-        if(gm == null)
-        {
-            gm = this;
-        }
-    }*/
-    public enum GameState
-    {
-        Ready,
-        Run,
-        Pause,
-        GameOver,
-    }
-    public GameState gState;
-
-    public GameObject gameOption;
-
-    public void OpenOptionWindow()
-    {
-        gameOption.SetActive(true);
-        Time.timeScale = 0f;
-        gState = GameState.Pause;
-    }
-
-    public void CloseOptionWindow()
-    {
-        gameOption.SetActive(false);
-        Time.timeScale = 1f;
-        gState = GameState.Run;
-    }
-
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }
