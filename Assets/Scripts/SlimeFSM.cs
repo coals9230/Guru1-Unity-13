@@ -24,7 +24,7 @@ public class SlimeFSM : MonoBehaviour
     public Transform player;  // 플레이어 트랜스폼
 
     float currentTime = 0;  // 누적 시간
-    float attackDelay = 3f;  // 공격 딜레이 시간
+    float attackDelay = 5f;  // 공격 딜레이 시간
 
     public int attackPower = 7;  // 몬스터 공격력
 
@@ -141,7 +141,6 @@ public class SlimeFSM : MonoBehaviour
 
             // 누적 시간을 공격 딜레이 시간만큼 미리 진행시킴 (공격 상태로 전환될 때 바로 공격)
             currentTime = attackDelay;
-
         }
 
     }
@@ -183,6 +182,9 @@ public class SlimeFSM : MonoBehaviour
     // 피격 처리용 코루틴 함수
     IEnumerator DamageProcess()
     {
+        // 피격
+        HitMonster(10);
+
         // 피격 모션 시간(0.5초)만큼 기다린다
         yield return new WaitForSeconds(0.5f);
 
@@ -208,7 +210,6 @@ public class SlimeFSM : MonoBehaviour
 
             // 피격 애니메이션
             anim.SetTrigger("Damaged");
-            Damaged();
         }
         // 체력이 0 이하면 죽음 상태로 전환
         else
@@ -224,6 +225,9 @@ public class SlimeFSM : MonoBehaviour
         // 진행중인 피격 코루틴 함수 중지
         StopAllCoroutines();
 
+        // 움직임 중지
+        rigid.velocity = Vector3.zero;
+
         //죽음 상태 처리 위한 코루틴 실행
         StartCoroutine(DieProcess());
 
@@ -236,8 +240,8 @@ public class SlimeFSM : MonoBehaviour
 
     IEnumerator DieProcess()
     {
-        // 2초 동안 기다린 후 자기 자신 제거
-        yield return new WaitForSeconds(1f);
+        // 0.5초 동안 기다린 후 자기 자신 제거
+        yield return new WaitForSeconds(0.5f);
         print("소멸");
         Destroy(gameObject);
     }
