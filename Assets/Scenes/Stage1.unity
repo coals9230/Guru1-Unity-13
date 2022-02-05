@@ -143,23 +143,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8899833890943219637, guid: e21b2b8357d1cac4f81eab02ead4c0d2, type: 3}
   m_PrefabInstance: {fileID: 8899833890832117759}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &238866252 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1791617988549078901, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
-  m_PrefabInstance: {fileID: 1791617987592004227}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &238866254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238866252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973e1ca4c2ab364087dbaa3dbd1d2b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &276218358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8641174907602626942, guid: 450d4c145afd57b48ae1e94e67eff7a7, type: 3}
@@ -223,7 +206,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.526554
+  orthographic size: 8.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -247,7 +230,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.62, y: 3.41, z: -10}
+  m_LocalPosition: {x: 4.49, y: 3.54, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -626,7 +609,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2073509674}
-  - component: {fileID: 2073509673}
   - component: {fileID: 2073509672}
   m_Layer: 0
   m_Name: GameObject
@@ -648,18 +630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOption: {fileID: 1574022561}
---- !u!114 &2073509673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073509671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f973e1ca4c2ab364087dbaa3dbd1d2b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2073509674
 Transform:
   m_ObjectHideFlags: 0
@@ -925,6 +895,18 @@ PrefabInstance:
     - target: {fileID: 1791617987020333073, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Option, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791617987020333074, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.11581
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791617987020333074, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.6426195
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791617987020333074, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.294
       objectReference: {fileID: 0}
     - target: {fileID: 1791617987483903886, guid: 77f7578f345b36e4a825bc3fe6a54c5e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
