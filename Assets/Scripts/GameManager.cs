@@ -11,15 +11,17 @@ public class GameManager : MonoBehaviour
     public int EXP = 0;
     public int Level = 1;
     public int Potion;
+
     public void LoseHP()
     {
         HP -= 10;
+        // 플레이어 피격 애니메이션 실행 함수
+        GameObject.Find("Player").SendMessage("Damaged"); 
 
         if (HP <= 0)
         {
             SceneManager.LoadScene("GameOver");
             //RestartGame();
-
         }
     }
 

@@ -30,12 +30,13 @@ public class Player : MonoBehaviour
             float distance = Vector2.Distance(GameObject.Find("Monster").transform.position,
                 transform.position);
 
-            if (distance <= 2f)
+            if (distance <= 3f)
             {
                 GameObject.Find("Monster").SendMessage("Damaged");
-                anim.SetTrigger("attack");
                 anim.SetBool("isWalking", false);
+                anim.SetTrigger("attack");
             }
+                
         }
 
         // 캐릭터 방향 설정
@@ -57,5 +58,11 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking",false);
         }
 
+    }
+
+    // 피격 애니메이션 실행
+    void Damaged()
+    {
+        anim.SetTrigger("Damaged");
     }
 }
