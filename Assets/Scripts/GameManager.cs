@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int Level = 1;
     public int Potion;
 
+    public GameObject highMonster;
+    public GameObject nextMonster;
     public void LoseHP(int damage)
     {
         HP -= damage;
@@ -34,24 +36,36 @@ public class GameManager : MonoBehaviour
     public void GainEXP()
     {
         EXP += 20;
-
+        if (EXP < 50)
+        {
+            highMonster.SetActive(true);
+            nextMonster.SetActive(false);
+        }
         if (EXP >= 50)
         {
             Level++;
+            highMonster.SetActive(false);
+            nextMonster.SetActive(true);
         }
         if (EXP >= 150)
         {
             Level++;
             SceneManager.LoadScene("Stage2");
+            highMonster.SetActive(true);
+            nextMonster.SetActive(false);
         }
         if (EXP >= 250)
         {
             Level++;
+            highMonster.SetActive(false);
+            nextMonster.SetActive(true);
         }
         if (EXP >= 450)
         {
             Level++;
             SceneManager.LoadScene("Stage3");
+            highMonster.SetActive(true);
+            nextMonster.SetActive(false);
         }
         if (EXP >= 600)
             SceneManager.LoadScene("GameOver");
@@ -68,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         HP = 200;
         Potion = 0;
-        
+        nextMonster.SetActive(false);
     }
    
     // Update is called once per frame
@@ -85,8 +99,10 @@ public class GameManager : MonoBehaviour
             {
                 GainHP();
                 Debug.Log("HP:" + HP);
+                GainEXP();
             }
         }
         //if(player)
     }
+
 }
