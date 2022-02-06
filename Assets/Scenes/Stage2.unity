@@ -1599,8 +1599,8 @@ MonoBehaviour:
   EXP: 0
   Level: 1
   Potion: 0
-  highMonster: {fileID: 781774208}
-  nextMonster: {fileID: 478476632}
+  highMonster: {fileID: 659913940}
+  nextMonster: {fileID: 1359182425}
   PotionText: {fileID: 39139212}
 --- !u!4 &711666764
 Transform:
@@ -1610,7 +1610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711666762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1670313, y: 5.034981, z: -0.70170486}
+  m_LocalPosition: {x: 6.68, y: 5.034981, z: -0.70170486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2576,7 +2576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1225707008
 Transform:
   m_ObjectHideFlags: 0
@@ -2766,7 +2766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1271915287
 Transform:
   m_ObjectHideFlags: 0
@@ -3195,7 +3195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1425742578
 Transform:
   m_ObjectHideFlags: 0
@@ -3396,7 +3396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642118994}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1670313, y: 2.26, z: 0}
+  m_LocalPosition: {x: 8.93, y: 2.26, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
