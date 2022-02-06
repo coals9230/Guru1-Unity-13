@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
             {
                 GainHP();
                 Debug.Log("HP:" + HP);
-                GainEXP();
             }
         }
         //if(player)
