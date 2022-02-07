@@ -193,7 +193,7 @@ public class SlimeFSM : MonoBehaviour
         print("상태 전환 : Damaged -> Trace");
     }
 
-    public void HitMonster (int hitPower)
+    public void HitMonster(int hitPower)
     {
         // 이미 피격 상태이거나 사망 상태라면 함수 종료
         if (m_State == MonsterState.Damaged || m_State == MonsterState.Die )
